@@ -1,0 +1,77 @@
+TESTE BACKEND
+
+To run the application, execute the following commands in the respective folders. To aid in the tests, dockers were added to simulate the databases.
+
+//Strarts by default in port 3001, can be set in .env file
+./shopping-cart-ms
+$docker-compose up -d
+$npm i
+$node index.js
+
+shopping-cart-ms Routes
+
+- GET /api/shoppingCart 
+    - query {
+        offset: number
+        limit: number
+    }
+
+- GET /api/shoppingCart/:shoppingCartId 
+
+- POST /api/shoppingCart/:shoppingCartId/products 
+    - body {
+        userId: number
+        productId: number
+        quantity: number
+        price: number
+    }
+
+- DELETE /api/shoppingCart/:shoppingCartId/products/:productId 
+
+
+//Strarts by default in port 3002, can be set in .env file
+./product-ms 
+$docker-compose up -d
+$npm i
+$node index.js
+
+product-ms Routes
+
+- GET /api/product 
+    - query {
+        offset: number
+        limit: number
+    }
+
+- POST /api/product 
+    - body: {
+        productId: number
+        price: number
+    }
+
+
+//Strarts by default in port 3000, can be set in .env file
+// All routes can be access by the api gateway
+./api-gateway
+$npm i
+$node index.js
+
+- GET    /api/shoppingCart 
+- GET    /api/shoppingCart/:shoppingCartId 
+- POST   /api/shoppingCart/:shoppingCartId/products 
+- DELETE /api/shoppingCart/:shoppingCartId/products/:productId 
+
+- GET    /api/product 
+- POST   /api/product 
+
+Unit and feature tests have also been added. To execute them, execute the following commands in the microservices folder.
+
+//Execute all Tests
+$npm run test 
+
+//Execute Unit Tests
+$npm run test:unit
+
+//Execute Feature Tests
+$npm run test:feature
+

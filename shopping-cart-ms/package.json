@@ -1,0 +1,48 @@
+{
+    "name": "shopping-cart-ms",
+    "version": "1.0.0",
+    "description": "Shopping Cart Microservice",
+    "main": "index.js",
+    "engines": {
+        "node": "f>=14.15.x <15.0.0"
+    },
+    "scripts": {
+        "server": "node index.js",
+        "dev": "nodemon index.js",
+        "lint": "node_modules/.bin/eslint . --fix",
+        "test": "npm run test:unit && npm run test:feature",
+        "test:unit": "cross-env NODE_PATH=. NODE_ENV=LOCAL mocha --config .\\test\\support\\.mocharc.unit.json --exit",
+        "test:feature": "cross-env NODE_PATH=. NODE_ENV=LOCAL mocha --config .\\test\\support\\.mocharc.feature.json --exit"
+    },
+    "author": "Julio Coitinho Pinto <juliocp88@hotmail.com>",
+    "license": "ISC",
+    "repository": {},
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "chai": "^4.2.0",
+        "chai-change": "^2.1.2",
+        "chai-spies": "^1.0.0",
+        "compression": "^1.7.4",
+        "cross-env": "^7.0.3",
+        "dirty-chai": "^2.0.1",
+        "dotenv": "^8.2.0",
+        "eslint": "6.6.0",
+        "express": "4.16.4",
+        "express-validator": "^6.10.1",
+        "faker": "^4.1.0",
+        "joi": "^14.3.1",
+        "jsonwebtoken": "^8.5.1",
+        "mocha": "^6.2.2",
+        "mongoose": "^5.2.8",
+        "mongoose-paginate": "^5.0.3",
+        "pg": "^7.14.0",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "eslint-plugin-mocha-no-only": "^1.1.1",
+        "husky": "^3.1.0",
+        "lint-staged": "^9.5.0",
+        "nodemon": "^2.0.1",
+        "supertest": "^4.0.2"
+    }
+}
